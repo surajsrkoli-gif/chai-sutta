@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0B0908" />
 <title>Chai Sutta — Turn Your Chai Break Into Real Rewards</title>
-<meta name="description" content="Chai Sutta is a lightweight Android rewards app. Complete simple tasks, keep your daily streak alive and withdraw real cash rewards straight to UPI." />
+<meta name="description" content="Chai Sutta is a lightweight Android rewards application. Discover eligible offers, surveys, tasks and rewarded ads to earn Chillar — our in-app virtual reward currency." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://chaisutta.app/" />
 <meta property="og:title" content="Chai Sutta — Turn Your Chai Break Into Real Rewards" />
-<meta property="og:description" content="Earn coins on your break. Withdraw to UPI. Free, light and fast." />
+<meta property="og:description" content="A lightweight Android rewards application. Earn Chillar through eligible activities." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,6 +65,7 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 h1,h2,h3,h4{font-family:'Sora','Plus Jakarta Sans',sans-serif;line-height:1.15;letter-spacing:-.02em;font-weight:700}
 ::selection{background:rgba(255,122,69,.35);color:#fff}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
 
 /* ============ LAYOUT ============ */
 .container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px;position:relative;z-index:1}
@@ -79,7 +82,7 @@ section{position:relative;z-index:1}
 .eyebrow .pulse{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
 .section-title{font-size:clamp(1.85rem,4vw,2.9rem);margin:20px 0 16px}
-.section-sub{color:var(--muted);max-width:620px;font-size:1.03rem}
+.section-sub{color:var(--muted);max-width:640px;font-size:1.03rem}
 .center{text-align:center}
 .center .section-sub{margin-inline:auto}
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -114,6 +117,7 @@ section{position:relative;z-index:1}
   transition:color .2s,background .2s;
 }
 .nav-links a:hover{color:var(--text);background:var(--surface)}
+.nav-links a.active{color:var(--amber);background:rgba(255,196,107,.10)}
 .nav-cta{display:flex;align-items:center;gap:10px}
 .burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--border);background:var(--surface);place-items:center}
 .burger span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;position:relative;transition:.3s}
@@ -261,7 +265,7 @@ section{position:relative;z-index:1}
 .panel > *{position:relative;z-index:1}
 .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
 .panel-head h3{font-size:1.15rem}
-.badge-live{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.25);padding:5px 11px;border-radius:100px}
+.badge-live{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:rgba(255,196,107,.12);border:1px solid rgba(255,196,107,.28);padding:5px 11px;border-radius:100px}
 .payout{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px dashed rgba(255,255,255,.1);font-size:.9rem}
 .payout:last-of-type{border-bottom:none}
 .payout span{color:var(--muted)}
@@ -313,7 +317,7 @@ section{position:relative;z-index:1}
 /* ============ FOOTER ============ */
 footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;background:rgba(255,255,255,.012)}
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px}
-.foot-brand p{color:var(--muted);font-size:.9rem;margin-top:16px;max-width:300px}
+.foot-brand p{color:var(--muted);font-size:.9rem;margin-top:16px;max-width:320px}
 .foot-col h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted-2);font-weight:800;margin-bottom:18px}
 .foot-col a{display:block;color:var(--muted);font-size:.9rem;padding:6px 0;transition:color .2s,transform .2s}
 .foot-col a:hover{color:var(--amber);transform:translateX(3px)}
@@ -368,28 +372,30 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#top" class="brand" aria-label="Chai Sutta home">
+    <a href="index.html" class="brand" aria-label="Chai Sutta home">
       <span class="brand-mark">CS</span>
       <span>Chai<span class="grad-text">Sutta</span></span>
     </a>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="#rewards">Rewards</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="rewards.html">Rewards</a>
+      <a href="faq.html">FAQ</a>
+      <a href="help.html">Help</a>
     </nav>
 
     <div class="nav-cta">
-      <a href="#download" class="btn btn-primary btn-sm">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      <a href="download.html" class="btn btn-primary btn-sm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
         Download
       </a>
-      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
     </div>
   </div>
 </header>
+
+<main>
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
@@ -400,39 +406,40 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
         <span class="eyebrow reveal"><span class="pulse"></span> Now live on Android</span>
         <h1 class="reveal">Turn your <span class="grad-text">chai break</span><br />into real rewards.</h1>
         <p class="lead reveal">
-          Chai Sutta is a lightweight Android rewards app built for short breaks. Complete quick tasks,
-          keep your daily streak alive and withdraw your coins straight to UPI — no complicated setup, no waiting.
+          Chai Sutta is a lightweight Android rewards application built for short breaks.
+          Discover eligible offers, surveys, tasks and rewarded ads, and earn Chillar —
+          our in-app virtual reward currency.
         </p>
 
         <div class="hero-actions reveal">
-          <a href="#download" class="btn btn-primary">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
+          <a href="download.html" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
             Get the App
           </a>
-          <a href="#how" class="btn btn-ghost">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
+          <a href="how-it-works.html" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
             See how it works
           </a>
         </div>
 
         <div class="hero-note reveal">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Free to install</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Under 12 MB</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> UPI payouts</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Free to install</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Under 12 MB</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Android 6.0+</span>
         </div>
 
         <div class="hero-stats reveal">
           <div>
-            <div class="stat-num"><span data-count="184" data-suffix="K+">0</span></div>
-            <div class="stat-label">Active users</div>
+            <div class="stat-num">Free</div>
+            <div class="stat-label">To install</div>
           </div>
           <div>
-            <div class="stat-num"><span data-count="4.8" data-decimals="1">0</span>★</div>
-            <div class="stat-label">Play rating</div>
+            <div class="stat-num">Android</div>
+            <div class="stat-label">6.0 and above</div>
           </div>
           <div>
-            <div class="stat-num">₹<span data-count="2.6" data-decimals="1" data-suffix="Cr+">0</span></div>
-            <div class="stat-label">Rewards paid</div>
+            <div class="stat-num">Chillar</div>
+            <div class="stat-label">In-app rewards</div>
           </div>
         </div>
       </div>
@@ -443,23 +450,23 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
 
         <div class="float-chip chip-1">
           <span class="chip-dot">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
           </span>
-          <span>₹50 credited<small>UPI · 2 min ago</small></span>
+          <span>Chillar credited<small>Example activity</small></span>
         </div>
 
         <div class="float-chip chip-2">
           <span class="chip-dot amber">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           </span>
-          <span>Streak: 12 days<small>+120 bonus coins</small></span>
+          <span>Daily streak<small>Example bonus</small></span>
         </div>
 
         <div class="phone" role="img" aria-label="Chai Sutta app interface preview">
           <div class="phone-screen">
             <div class="ps-bar">
               <span>9:41</span>
-              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
             </div>
 
             <div class="app-head">
@@ -471,35 +478,35 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
             </div>
 
             <div class="balance">
-              <div class="lbl">Total Balance</div>
-              <div class="amt">₹248.50</div>
+              <div class="lbl">Chillar Balance</div>
+              <div class="amt">1,240</div>
               <div class="row">
-                <span class="coins">1,240 coins</span>
-                <span class="wd">Withdraw</span>
+                <span class="coins">Available</span>
+                <span class="wd">Wallet</span>
               </div>
             </div>
 
-            <div class="mini-title">Today's tasks</div>
+            <div class="mini-title">Today's activities</div>
 
             <div class="task">
-              <span class="ic">🎬</span>
-              <span class="tx"><b>Watch a short clip</b><small>0:30 · 1 of 5 done</small></span>
+              <span class="ic" aria-hidden="true">🎬</span>
+              <span class="tx"><b>Rewarded ad</b><small>When available</small></span>
               <span class="rw">+15</span>
             </div>
 
             <div class="task">
-              <span class="ic">🎯</span>
-              <span class="tx"><b>Daily check-in</b><small>Streak bonus active</small></span>
+              <span class="ic" aria-hidden="true">🎯</span>
+              <span class="tx"><b>Daily check-in</b><small>Streak bonus</small></span>
               <span class="rw">+40</span>
             </div>
 
             <div class="task">
-              <span class="ic">🎁</span>
-              <span class="tx"><b>Scratch card</b><small>Unlocked at 1,000 coins</small></span>
+              <span class="ic" aria-hidden="true">📋</span>
+              <span class="tx"><b>Survey</b><small>Subject to eligibility</small></span>
               <span class="rw">+25</span>
             </div>
 
-            <div class="progress-line"><i></i></div>
+            <div class="progress-line" aria-hidden="true"><i></i></div>
             <div class="mini-title" style="padding-top:2px">Daily goal · 68%</div>
           </div>
         </div>
@@ -512,19 +519,19 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
 <!-- ================= MARQUEE ================= -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee" id="marquee">
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> UPI cash payouts</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Mobile recharges</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Gift vouchers</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Daily streak bonus</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg> Referral earnings</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg> Scratch &amp; win</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Offerwall opportunities</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Surveys</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Rewarded ads</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Daily tasks</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg> Referrals</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg> Chillar wallet</span>
     <!-- duplicate for seamless loop -->
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> UPI cash payouts</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Mobile recharges</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Gift vouchers</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Daily streak bonus</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg> Referral earnings</span>
-    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg> Scratch &amp; win</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Offerwall opportunities</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Surveys</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Rewarded ads</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Daily tasks</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg> Referrals</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg> Chillar wallet</span>
   </div>
 </div>
 
@@ -533,57 +540,57 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
   <div class="container">
     <div class="center">
       <span class="eyebrow reveal">Why Chai Sutta</span>
-      <h2 class="section-title reveal">Small breaks.<br class="hide-sm" /> <span class="grad-text">Genuine rewards.</span></h2>
+      <h2 class="section-title reveal">Small breaks.<br class="hide-sm" /> <span class="grad-text">Real activities.</span></h2>
       <p class="section-sub reveal">Everything in the app is designed to be finished in under two minutes — perfect for that one cup of chai.</p>
     </div>
 
     <div class="grid-3">
       <article class="card reveal">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
         </div>
-        <h3>Daily chai bonus</h3>
-        <p>Open the app once a day, tap your cup and collect a bonus. Streaks grow your multiplier up to 3× — miss a day and it resets, so it stays interesting.</p>
+        <h3>Offerwalls</h3>
+        <p>Discover eligible offers from supported reward partners. Availability depends on your region, device and current campaigns.</p>
       </article>
 
       <article class="card reveal">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M10 9l5 3-5 3V9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
-        <h3>Watch &amp; earn</h3>
-        <p>A short feed of clips and quick tasks. Each one credits coins instantly to your balance — no forms, no spam, no forced downloads.</p>
+        <h3>Surveys</h3>
+        <p>Participate in available surveys when you match the required eligibility criteria. Not every survey is available to every user.</p>
       </article>
 
       <article class="card reveal">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18M8 15l2 2 5-5"/></svg>
         </div>
-        <h3>Instant UPI payouts</h3>
-        <p>Link your UPI ID once and withdraw any time you cross the minimum. Most payouts land in your account within minutes, not days.</p>
+        <h3>Daily tasks</h3>
+        <p>Complete available tasks and activities to earn Chillar. Fresh opportunities may appear as providers publish new campaigns.</p>
       </article>
 
       <article class="card reveal">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M10 9l5 3-5 3V9z"/></svg>
         </div>
-        <h3>Spin, scratch, win</h3>
-        <p>Gamified reward moments keep the experience fun. Spin the wheel or scratch a card every few hours for bonus coins and surprise drops.</p>
+        <h3>Rewarded ads</h3>
+        <p>Watch eligible rewarded advertisements when available. Ad inventory changes throughout the day and by region.</p>
       </article>
 
       <article class="card reveal">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg>
         </div>
-        <h3>Refer &amp; grow</h3>
-        <p>Share your invite code. When a friend joins and completes their first task, you both get a bonus — plus a small cut of their earnings for 30 days.</p>
+        <h3>Refer &amp; earn</h3>
+        <p>Invite friends using your referral code and participate in the referral program, subject to eligibility and program rules.</p>
       </article>
 
       <article class="card reveal">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11L10 22l9.5-11.5H13L13 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20"/><circle cx="12" cy="14" r="2"/></svg>
         </div>
-        <h3>Light &amp; fast</h3>
-        <p>Under 12 MB installed, optimised for Android 6.0 and up. Runs smoothly on budget phones and low-bandwidth connections.</p>
+        <h3>Chillar wallet</h3>
+        <p>Track your available Chillar and transaction history. Balances update as activity is verified by our reward system.</p>
       </article>
     </div>
   </div>
@@ -594,31 +601,35 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
   <div class="container">
     <div class="center">
       <span class="eyebrow reveal">How it works</span>
-      <h2 class="section-title reveal">Four steps to your first payout</h2>
-      <p class="section-sub reveal">You can go from install to your first withdrawal in a single evening.</p>
+      <h2 class="section-title reveal">Four steps to get started</h2>
+      <p class="section-sub reveal">You can go from install to your first eligible activity in a single chai break.</p>
     </div>
 
     <div class="steps">
       <article class="step reveal">
         <div class="step-num">01</div>
         <h3>Install the app</h3>
-        <p>Download the APK or get it from the Play Store. Setup takes less than a minute.</p>
+        <p>Download the official Chai Sutta Android application from our download page.</p>
       </article>
       <article class="step reveal">
         <div class="step-num">02</div>
-        <h3>Sign up</h3>
-        <p>Verify your mobile number with an OTP. No email, no documents, no long forms.</p>
+        <h3>Create your account</h3>
+        <p>Verify your mobile number and complete the required account setup.</p>
       </article>
       <article class="step reveal">
         <div class="step-num">03</div>
-        <h3>Complete tasks</h3>
-        <p>Check in daily, watch clips and finish quick tasks to stack up coins.</p>
+        <h3>Explore activities</h3>
+        <p>Browse eligible offers, surveys, tasks and rewarded ads available in your region.</p>
       </article>
       <article class="step reveal">
         <div class="step-num">04</div>
-        <h3>Withdraw</h3>
-        <p>Convert coins to cash and send them to your UPI ID whenever you like.</p>
+        <h3>Earn Chillar</h3>
+        <p>Eligible completed activities are processed through our reward system after verification.</p>
       </article>
+    </div>
+
+    <div style="text-align:center;margin-top:44px" class="reveal">
+      <a href="how-it-works.html" class="btn btn-ghost">See the full process →</a>
     </div>
   </div>
 </section>
@@ -629,52 +640,52 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
     <div class="split">
 
       <div class="reveal">
-        <span class="eyebrow">Reward options</span>
-        <h2 class="section-title">Withdraw the way <span class="grad-text">you</span> want</h2>
-        <p class="section-sub">Coins convert at a transparent rate, shown right inside the app before you tap withdraw. No surprise deductions, ever.</p>
+        <span class="eyebrow">Chillar rewards</span>
+        <h2 class="section-title">Understand <span class="grad-text">Chillar</span></h2>
+        <p class="section-sub">Chillar is Chai Sutta's in-app virtual reward currency. It is not cryptocurrency, real money, or a financial product — learn how it works and what to expect.</p>
 
         <div class="reward-list">
           <div class="reward-row">
-            <span class="ic">₹</span>
-            <span><b>UPI cash transfer</b><small>Minimum ₹50 · Usually instant</small></span>
-            <span class="val">1,000 coins = ₹10</span>
+            <span class="ic" aria-hidden="true">🧩</span>
+            <span><b>Offerwalls</b><small>From supported reward partners</small></span>
           </div>
           <div class="reward-row">
-            <span class="ic">📱</span>
-            <span><b>Mobile recharge</b><small>Any operator · Any circle</small></span>
-            <span class="val">from ₹20</span>
+            <span class="ic" aria-hidden="true">📋</span>
+            <span><b>Surveys</b><small>When you match eligibility</small></span>
           </div>
           <div class="reward-row">
-            <span class="ic">🎟️</span>
-            <span><b>Gift vouchers</b><small>Shopping, food &amp; entertainment</small></span>
-            <span class="val">from ₹100</span>
+            <span class="ic" aria-hidden="true">🗓️</span>
+            <span><b>Daily tasks</b><small>When tasks are available</small></span>
           </div>
           <div class="reward-row">
-            <span class="ic">⚡</span>
-            <span><b>Bill payments</b><small>Electricity, DTH &amp; broadband</small></span>
-            <span class="val">from ₹50</span>
+            <span class="ic" aria-hidden="true">🎬</span>
+            <span><b>Rewarded ads</b><small>Subject to ad inventory</small></span>
           </div>
+        </div>
+
+        <div style="margin-top:28px" class="reveal">
+          <a href="rewards.html" class="btn btn-ghost">Learn more about Chillar →</a>
         </div>
       </div>
 
       <div class="panel reveal">
         <div class="panel-head">
-          <h3>Recent payouts</h3>
-          <span class="badge-live">Live</span>
+          <h3>Reward statuses</h3>
+          <span class="badge-live">Example</span>
         </div>
 
-        <div class="payout"><span>Aarav M.</span><b>₹250.00</b><span class="ok">Paid</span></div>
-        <div class="payout"><span>Priya S.</span><b>₹120.00</b><span class="ok">Paid</span></div>
-        <div class="payout"><span>Rohit K.</span><b>₹500.00</b><span class="ok">Paid</span></div>
-        <div class="payout"><span>Sneha D.</span><b>₹75.00</b><span class="ok">Paid</span></div>
-        <div class="payout"><span>Imran Q.</span><b>₹310.00</b><span class="ok">Paid</span></div>
+        <div class="payout"><span>Pending</span><b>Awaiting verification</b><span class="ok">·</span></div>
+        <div class="payout"><span>Processing</span><b>Being converted</b><span class="ok">·</span></div>
+        <div class="payout"><span>Completed</span><b>Credited to wallet</b><span class="ok">·</span></div>
+        <div class="payout"><span>Rejected</span><b>Did not meet requirements</b><span class="ok">·</span></div>
+        <div class="payout"><span>Reversed</span><b>Corrected or charged back</b><span class="ok">·</span></div>
 
         <div class="panel-total">
           <div>
-            <div class="stat-label">Paid out this week</div>
-            <div class="big">₹<span data-count="4.8" data-decimals="1" data-suffix="L">0</span></div>
+            <div class="stat-label">Reward amounts</div>
+            <div class="big">Vary</div>
           </div>
-          <a href="#download" class="btn btn-primary btn-sm">Start earning</a>
+          <a href="download.html" class="btn btn-primary btn-sm">Get the app</a>
         </div>
       </div>
 
@@ -686,53 +697,53 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
 <section class="section-pad" id="reviews" style="padding-top:0">
   <div class="container">
     <div class="center">
-      <span class="eyebrow reveal">User reviews</span>
-      <h2 class="section-title reveal">Real people, real payouts</h2>
-      <p class="section-sub reveal">A few words from users who make Chai Sutta part of their daily break.</p>
+      <span class="eyebrow reveal">Community</span>
+      <h2 class="section-title reveal">Built for everyday breaks</h2>
+      <p class="section-sub reveal">A few things users tend to like about Chai Sutta.</p>
     </div>
 
     <div class="grid-3">
       <article class="quote reveal">
         <div class="stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
         </div>
-        <p>“I do the daily check-in with my morning chai. Withdrew ₹300 last month to UPI and it came through in about five minutes. The app is tiny too, doesn't eat my storage.”</p>
+        <p>“Small app, doesn't eat my storage, and I can finish a task on my morning chai break. Clean interface, no annoying pop-ups.”</p>
         <div class="who">
-          <div class="avatar">AM</div>
+          <div class="avatar" aria-hidden="true">AM</div>
           <div><b>Aarav Mehta</b><small>Pune · User since 2024</small></div>
         </div>
       </article>
 
       <article class="quote reveal">
         <div class="stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
         </div>
-        <p>“Clean interface, no annoying pop-ups like other reward apps. The streak system actually makes me open it daily. Referred three friends and got a nice bonus.”</p>
+        <p>“The streak system actually makes me open it daily, and the referral program is straightforward. Feels like a real product, not a scam.”</p>
         <div class="who">
-          <div class="avatar">PS</div>
+          <div class="avatar" aria-hidden="true">PS</div>
           <div><b>Priya Sharma</b><small>Jaipur · User since 2023</small></div>
         </div>
       </article>
 
       <article class="quote reveal">
         <div class="stars" aria-label="4 out of 5 stars">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" opacity=".25"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" opacity=".25" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
         </div>
-        <p>“Works fine on my older Redmi. Tasks are quick and payouts are honest. Would love more reward options, but overall a solid app for spare time.”</p>
+        <p>“Works fine on my older phone. Tasks are quick and Chillar updates feel honest. Would love more reward options but overall a solid app.”</p>
         <div class="who">
-          <div class="avatar">RK</div>
+          <div class="avatar" aria-hidden="true">RK</div>
           <div><b>Rohit Kumar</b><small>Lucknow · User since 2024</small></div>
         </div>
       </article>
@@ -746,38 +757,43 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
     <div class="center">
       <span class="eyebrow reveal">Questions</span>
       <h2 class="section-title reveal">Everything you might ask</h2>
+      <p class="section-sub reveal">A few common questions. For the full list, visit our FAQ page.</p>
     </div>
 
-    <div class="faq">
+    <div class="faq" data-accordion-single>
       <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">Is Chai Sutta really free to use?<span class="plus"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>Yes. Installing and using the app is completely free. There are no subscriptions, no in-app purchases and no hidden charges. You never need to pay anything to withdraw your rewards.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Is Chai Sutta free to use?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes. Installing and using the app is free. There are no subscriptions and no hidden charges to participate in eligible activities.</p></div></div>
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">How much can I realistically earn?<span class="plus"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>It depends on how many tasks are available in your region and how consistently you use the app. Most active users earn enough for a small monthly payout — think of it as pocket money for your break time, not a full-time income.</p></div></div>
+        <button class="faq-q" aria-expanded="false">What is Chillar?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Chillar is Chai Sutta's in-app virtual reward currency. It is not cryptocurrency, not real money, and not a financial product. It can be used according to the current wallet and withdrawal rules of the platform.</p></div></div>
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">How long do withdrawals take?<span class="plus"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>UPI withdrawals are typically processed within a few minutes. During peak hours or bank downtime it can take up to 24 hours. You can track the status of every request from the Wallet screen.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Are rewards guaranteed?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. Completing an activity does not automatically guarantee a reward unless the applicable offer explicitly says so. Some activities require verification, and third-party providers may reject or reverse conversions.</p></div></div>
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">Do I need to share personal documents?<span class="plus"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>No documents are required to start earning. Sign-up only needs a mobile number verified by OTP. For withdrawals, you simply add the UPI ID where you want the money sent.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Which Android versions are supported?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>The app supports Android 6.0 (Marshmallow) and above, and is optimised to run smoothly on entry-level devices.</p></div></div>
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">Which Android versions are supported?<span class="plus"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>The app supports Android 6.0 (Marshmallow) and above, and it is optimised to run smoothly on entry-level devices with limited RAM and storage.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Why are some offers unavailable?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Offers, surveys and ads are supplied by third-party providers. Availability varies by country, region, device, provider, advertiser campaign and platform configuration.</p></div></div>
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">How is my data handled?<span class="plus"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>We collect only what is needed to run the rewards programme — your phone number, device information for fraud prevention, and your payout details. We do not sell your personal data to third parties.</p></div></div>
+        <button class="faq-q" aria-expanded="false">How do I contact support?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Visit the <a href="contact.html">Contact Us</a> page, email <a href="mailto:support@chaisutta.app">support@chaisutta.app</a>, or use the <a href="report-issue.html">Report an issue</a> page.</p></div></div>
       </div>
+    </div>
+
+    <div style="text-align:center;margin-top:44px" class="reveal">
+      <a href="faq.html" class="btn btn-ghost">Read all FAQs →</a>
     </div>
   </div>
 </section>
@@ -786,70 +802,71 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
 <section class="section-pad" id="download" style="padding-top:0">
   <div class="container">
     <div class="cta-box reveal">
-      <span class="eyebrow"><span class="pulse"></span> Version 3.2 · Updated this month</span>
-      <h2 style="margin-top:22px">Your next chai break<br />could pay you back.</h2>
-      <p>Download Chai Sutta, complete your first task in under two minutes and start building your streak today.</p>
+      <span class="eyebrow"><span class="pulse"></span> Available for Android</span>
+      <h2 style="margin-top:22px">Your next chai break<br />could earn you Chillar.</h2>
+      <p>Download Chai Sutta and explore the eligible activities available in your region.</p>
 
       <div class="cta-actions">
-        <a href="#" class="btn btn-primary" id="downloadBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-          Download APK
+        <a href="download.html" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          Download Chai Sutta
         </a>
-        <a href="#" class="btn btn-ghost">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l16 9-16 9V3z"/></svg>
-          Get it on Google Play
+        <a href="how-it-works.html" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
+          See how it works
         </a>
       </div>
 
       <div class="cta-meta">
         <span>✓ Android 6.0+</span>
-        <span>✓ 11.4 MB download</span>
         <span>✓ No root required</span>
-        <span>✓ Free forever</span>
+        <span>✓ Free to install</span>
       </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="#top" class="brand"><span class="brand-mark">CS</span><span>Chai<span class="grad-text">Sutta</span></span></a>
-        <p>A lightweight Android rewards app made for short breaks. Earn coins, keep your streak, withdraw to UPI.</p>
+        <a href="index.html" class="brand"><span class="brand-mark">CS</span><span>Chai<span class="grad-text">Sutta</span></span></a>
+        <p>A lightweight Android rewards application. Discover eligible offers, surveys, tasks and rewarded ads to earn Chillar — our in-app virtual reward currency.</p>
       </div>
 
       <div class="foot-col">
         <h4>Product</h4>
-        <a href="#features">Features</a>
-        <a href="#how">How it works</a>
-        <a href="#rewards">Rewards</a>
-        <a href="#download">Download</a>
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="download.html">Download</a>
       </div>
 
       <div class="foot-col">
         <h4>Support</h4>
-        <a href="#faq">FAQ</a>
-        <a href="#">Help centre</a>
-        <a href="#">Contact us</a>
-        <a href="#">Report an issue</a>
+        <a href="faq.html">FAQ</a>
+        <a href="help.html">Help Centre</a>
+        <a href="contact.html">Contact us</a>
+        <a href="report-issue.html">Report an issue</a>
       </div>
 
       <div class="foot-col">
         <h4>Legal</h4>
-        <a href="#">Privacy policy</a>
-        <a href="#">Terms of service</a>
-        <a href="#">Refund policy</a>
-        <a href="#">Disclaimer</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="terms.html">Terms of service</a>
+        <a href="refund.html">Refund policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
       </div>
     </div>
 
     <p class="disclaimer">
-      Disclaimer: Chai Sutta is an independent rewards application and is not affiliated with, endorsed by, or sponsored by
-      Google LLC, Google Play, or any UPI payment service provider. Reward availability, task availability and payout
-      amounts vary by region, device and user activity. Earnings are not guaranteed. Chai Sutta does not promote or
-      facilitate the use of tobacco or any other harmful product.
+      Disclaimer: Chai Sutta is an independent rewards application. Chillar is an in-app virtual reward currency —
+      it is not cryptocurrency, not real money, not a security or investment product. Reward availability, offer
+      eligibility and withdrawal options vary by region, device, provider and campaign. Chai Sutta is not affiliated
+      with Google LLC, Google Play, UPI providers or any listed third-party reward partner.
     </p>
 
     <div class="foot-bottom">
@@ -889,7 +906,7 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry, i) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           var el = entry.target;
           var delay = (Array.prototype.indexOf.call(el.parentNode.children, el) % 4) * 80;
@@ -903,51 +920,23 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---------- Animated counters ---------- */
-  function animateCount(el) {
-    var target = parseFloat(el.getAttribute("data-count"));
-    var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
-    var suffix = el.getAttribute("data-suffix") || "";
-    var duration = 1500;
-    var start = null;
-
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var value = target * eased;
-      el.textContent = value.toFixed(decimals) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target.toFixed(decimals) + suffix;
-    }
-    requestAnimationFrame(step);
-  }
-
-  var counters = document.querySelectorAll("[data-count]");
-  if ("IntersectionObserver" in window) {
-    var co = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCount(entry.target);
-          co.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.4 });
-    counters.forEach(function (el) { co.observe(el); });
-  } else {
-    counters.forEach(animateCount);
-  }
-
-  /* ---------- FAQ accordion ---------- */
+  /* ---------- FAQ accordion (single-open per group) ---------- */
   var faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach(function (item) {
     var btn = item.querySelector(".faq-q");
+    if (!btn) return;
     btn.addEventListener("click", function () {
       var isOpen = item.classList.contains("open");
-      faqItems.forEach(function (other) {
-        other.classList.remove("open");
-        other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
-      });
+      var group = item.closest("[data-accordion-single]") || document;
+      if (group.hasAttribute && group.hasAttribute("data-accordion-single")) {
+        group.querySelectorAll(".faq-item").forEach(function (other) {
+          other.classList.remove("open");
+          var q = other.querySelector(".faq-q");
+          if (q) q.setAttribute("aria-expanded", "false");
+        });
+      } else {
+        item.classList.toggle("open", !isOpen);
+      }
       if (!isOpen) {
         item.classList.add("open");
         btn.setAttribute("aria-expanded", "true");
@@ -955,23 +944,9 @@ footer{border-top:1px solid var(--border);margin-top:104px;padding:64px 0 34px;b
     });
   });
 
-  /* ---------- Download button feedback ---------- */
-  var dl = document.getElementById("downloadBtn");
-  if (dl) {
-    dl.addEventListener("click", function (e) {
-      e.preventDefault();
-      var original = dl.innerHTML;
-      dl.innerHTML = "Thanks! Check your downloads ✦";
-      dl.style.pointerEvents = "none";
-      setTimeout(function () {
-        dl.innerHTML = original;
-        dl.style.pointerEvents = "";
-      }, 2200);
-    });
-  }
-
   /* ---------- Footer year ---------- */
-  document.getElementById("year").textContent = new Date().getFullYear();
+  var yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
 </script>
 </body>
